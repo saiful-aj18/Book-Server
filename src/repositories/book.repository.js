@@ -63,6 +63,8 @@ const getBooksByYear = () =>
 const searchBooks = (term) =>
   Book.find({ $text: { $search: term } }).sort({ score: { $meta: 'textScore' } });
 
+const getFeaturedBooks = () => Book.find({ isFeatured: true }).sort({ createdAt: -1 });
+
 export default {
   createBook,
   countBooks,
@@ -74,4 +76,5 @@ export default {
   getBooksByGenre,
   getBooksByYear,
   searchBooks,
+  getFeaturedBooks,
 };

@@ -110,6 +110,20 @@ export const getBookStatsByYear = async (_req, res, next) => {
   }
 };
 
+export const getFeaturedBooks = async (_req, res, next) => {
+  try {
+    const featuredBooks = await bookService.getFeaturedBooks();
+
+    res.status(200).json({
+      success: true,
+      count: featuredBooks.length,
+      data: featuredBooks,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const searchBooks = async (req, res, next) => {
   try {
     const term = req.query.q || '';

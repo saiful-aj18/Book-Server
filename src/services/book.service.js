@@ -120,6 +120,8 @@ const getYearStats = () => bookRepository.getBooksByYear();
 
 const searchBooks = (term) => bookRepository.searchBooks(term);
 
+const getFeaturedBooks = () => bookRepository.getFeaturedBooks();
+
 export default {
   createBook,
   getBooks,
@@ -130,4 +132,5 @@ export default {
   getGenreStats,
   getYearStats,
   searchBooks,
+  getFeaturedBooks,
 };
