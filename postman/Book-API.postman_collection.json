@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "Book API Teaching Collection",
+    "_postman_id": "5d3d2c83-5f7f-4c54-9f0a-4f6c47cb3d9a",
+    "description": "Simple requests for teaching MongoDB CRUD and query patterns.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/health"
+      }
+    },
+    {
+      "name": "Create Book",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Learning MongoDB\",\n  \"author\": \"John Smith\",\n  \"genre\": \"Database\",\n  \"description\": \"A simple book for MongoDB practice\",\n  \"price\": 499,\n  \"pages\": 320,\n  \"rating\": 4.5,\n  \"published\": true,\n  \"featured\": false,\n  \"publishedYear\": 2024,\n  \"tags\": [\"mongodb\", \"beginner\"]\n}"
+        },
+        "url": "http://localhost:3000/api/v1/books"
+      }
+    },
+    {
+      "name": "Get All Books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/api/v1/books"
+      }
+    },
+    {
+      "name": "Get Books With Filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/api/v1/books?genre=Database&published=true&sort=-price&limit=5"
+      }
+    },
+    {
+      "name": "Get Book By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/api/v1/books/PUT_BOOK_ID_HERE"
+      }
+    },
+    {
+      "name": "Update Book",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 550,\n  \"featured\": true\n}"
+        },
+        "url": "http://localhost:3000/api/v1/books/PUT_BOOK_ID_HERE"
+      }
+    },
+    {
+      "name": "Delete Book",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "http://localhost:3000/api/v1/books/PUT_BOOK_ID_HERE"
+      }
+    },
+    {
+      "name": "Distinct Genres",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/api/v1/books/genres"
+      }
+    },
+    {
+      "name": "Genre Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/api/v1/books/stats"
+      }
+    },
+    {
+      "name": "Year Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/api/v1/books/stats/year"
+      }
+    },
+    {
+      "name": "Text Search",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/api/v1/books/search?q=mongodb"
+      }
+    }
+  ]
+}
