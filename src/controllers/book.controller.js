@@ -148,3 +148,38 @@ export const searchBooks = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getBookAuthors = async (_req, res, next) => {
+  try {
+    const authors = await bookService.getBookAuthors();
+
+    res.status(200).json({
+      success: true,
+      data: authors,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+export const getBooksByAuthor = async (req, res, next) => {
+  try {
+    const author = req.params.author;
+
+    if (!author || !author.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: "Author name is required",
+      });
+    }
+
+    const books = await bookService.getBooksByAuthor(author.trim());
+
+    return res.status(200).json({
+      success: true,
+      count: books.length,
+      data: books,
+    });
+  } catch (error) {
+    next(error);
+  }
+};

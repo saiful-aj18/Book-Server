@@ -122,6 +122,10 @@ const searchBooks = (term) => bookRepository.searchBooks(term);
 
 const getFeaturedBooks = () => bookRepository.getFeaturedBooks();
 
+const getBookAuthors = () => bookRepository.getDistinctAuthors();
+
+const getBooksByAuthor = (author) => bookRepository.getBooksByAuthor(author);
+
 export default {
   createBook,
   getBooks,
@@ -133,4 +137,6 @@ export default {
   getYearStats,
   searchBooks,
   getFeaturedBooks,
+  getBookAuthors,
+  getBooksByAuthor,
 };

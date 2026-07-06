@@ -65,6 +65,16 @@ const searchBooks = (term) =>
 
 const getFeaturedBooks = () => Book.find({ isFeatured: true }).sort({ createdAt: -1 });
 
+const getDistinctAuthors = () => Book.distinct('author');
+
+const getBooksByAuthor = (author) =>
+  Book.find({
+    author: {
+      $regex: `^${author}$`,
+      $options: "i",
+    },
+  });
+
 export default {
   createBook,
   countBooks,
@@ -77,4 +87,6 @@ export default {
   getBooksByYear,
   searchBooks,
   getFeaturedBooks,
+  getDistinctAuthors,
+  getBooksByAuthor,
 };
